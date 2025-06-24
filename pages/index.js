@@ -4,7 +4,7 @@ import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 
 // Peta gambar grade: simpan file di public/grades dengan ekstensi .png atau .jpeg
 const gradeImages = {
-  A: '/grades/A.jpeg',
+  A: '/grades/A.png',
   'A-': '/grades/A-.png',
   'B+': '/grades/B+.png',
   B: '/grades/B.png',
