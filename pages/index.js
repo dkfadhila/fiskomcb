@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
-import { CheckCircle } from 'lucide-react';
 
-
+// Peta gambar grade: simpan file di public/grades dengan ekstensi .png atau .jpeg
 const gradeImages = {
   A: '/grades/A.png',
   'A-': '/grades/A-.png',
@@ -59,16 +58,19 @@ export default function Home() {
       <Head>
         <title>Checker Nilai Fisika Komputasi</title>
         <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/images/favicon.ico" />
       </Head>
       <div className="relative min-h-screen p-8 text-white">
         <div className="absolute inset-0 bg-[url('/images/bg.jpg')] bg-cover bg-center opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900 to-pink-700 opacity-60" />
         <div className="relative max-w-4xl mx-auto">
 
-          <h1 className="flex items-center justify-center gap-2 text-5xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400">
+          {/* Judul */}
+          <h1 className="text-5xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 text-center">
             Checker Nilai Fisika Komputasi
           </h1>
 
+          {/* Input NIM dan tombol Cari */}
           <div className="flex gap-4 mb-8">
             <input
               type="text"
@@ -85,19 +87,25 @@ export default function Home() {
             </button>
           </div>
 
+          {/* Error handling */}
           {err && <p className="text-red-400 mb-6">{err}</p>}
 
+          {/* Render data jika tersedia */}
           {stu && (
             <>
+              {/* Navigasi */}
               <div className="flex justify-center gap-4 mb-6">
                 <a href="https://x.com/vhaeyrin" target="_blank" rel="noopener noreferrer" className="hover:underline">X</a>
                 <a href="https://github.com/dkfadhila" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub</a>
               </div>
 
+              {/* Catatan Penilaian */}
               <div className="mb-6 p-4 bg-yellow-800 rounded-lg border-l-4 border-yellow-400">
-                <strong>Catatan Penilaian:</strong> Semua nilai Praktikum maksimum 95; Nilai Anda 0 dikarenakan ketahuan melakukan plagiasi tugas (menyalin/memfoto pekerjaan mahasiswa lain) dan tidak mengumpulkan file pendukung.
+                <strong>Catatan Penilaian:</strong> Semua nilai Praktikum maksimum 95;
+                nilai 0 karena ketahuan melakukan plagiasi tugas (menyalin/memfoto pekerjaan mahasiswa lain).
               </div>
 
+              {/* Profil Mahasiswa */}
               <div className="p-6 bg-gradient-to-r from-purple-600 to-purple-800 rounded-3xl shadow-xl text-center mb-8">
                 <img
                   src={gradeImages[stu.grade] || gradeImages.E}
@@ -112,6 +120,7 @@ export default function Home() {
                 <p className="mt-1">Rank: {stu.rank}</p>
               </div>
 
+              {/* Pie Chart */}
               <div className="flex justify-center mb-8">
                 <PieChart width={400} height={400}>
                   <Pie data={chartData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={120} label>
@@ -122,6 +131,7 @@ export default function Home() {
                 </PieChart>
               </div>
 
+              {/* Ringkasan Nilai */}
               <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-4 mb-8">
                 {chartData.map((item, i) => (
                   <div key={i} className="p-6 bg-gradient-to-r from-gray-800 to-gray-900 rounded-3xl shadow-xl text-center">
@@ -131,12 +141,13 @@ export default function Home() {
                 ))}
               </div>
 
+              {/* Detail Tugas */}
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-8">
                 {/* Tugas Teori */}
                 <div className="p-6 bg-gradient-to-r from-blue-600 to-blue-800 rounded-3xl shadow-xl">
                   <h3 className="font-semibold mb-2">Tugas Teori 1–8</h3>
                   <ul className="list-decimal list-inside space-y-1">
-                    {stu.teori.map((v, i) => <li key={i}>{`Tugas ${i + 1}: ${v}`}</li>)}
+                    {stu.teori.map((v, i) => <li key={i}>{`Tugas ${i+1}: ${v}`}</li>)}
                   </ul>
                   <p className="mt-2 font-semibold">Rata-rata: {avg(stu.teori)}</p>
                 </div>
@@ -145,7 +156,7 @@ export default function Home() {
                 <div className="p-6 bg-gradient-to-r from-green-600 to-green-800 rounded-3xl shadow-xl">
                   <h3 className="font-semibold mb-2">Tugas Praktikum 1–3</h3>
                   <ul className="list-decimal list-inside space-y-1">
-                    {stu.praktikum.slice(0, 3).map((v, i) => <li key={i}>{`Tugas ${i + 1}: ${v}`}</li>)}
+                    {stu.praktikum.slice(0,3).map((v,i) => <li key={i}>{`Tugas ${i+1}: ${v}`}</li>)}
                   </ul>
                   <p className="mt-2 font-semibold">Rata-rata: {avg(stu.praktikum)}</p>
                 </div>
@@ -161,6 +172,7 @@ export default function Home() {
                   <h3 className="font-semibold mb-2">Kuis Teori</h3>
                   <p className="font-semibold">{stu.kuisTeori}</p>
                 </div>
+              </div>
 
                 {/* Portofolio */}
                 <div className="p-6 bg-gradient-to-r from-pink-600 to-pink-800 rounded-3xl shadow-xl">
