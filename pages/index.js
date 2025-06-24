@@ -55,7 +55,7 @@ export default function Home() {
             ])
           )
         },
-        { name: 'UTS', value: parseFloat(stu.utsPrak) },
+        { name: 'UTS Praktikum', value: parseFloat(stu.utsPrak) },
         { name: 'Responsi', value: parseFloat(stu.responsiPraktikum) },
         { name: 'Kuis', value: parseFloat(stu.kuisTeori) },
         { name: 'Proyek', value: parseFloat(stu.project.nilai) }
@@ -132,7 +132,7 @@ export default function Home() {
 
               {/* Catatan Penilaian */}
               <div className="mb-6 p-4 bg-yellow-800 rounded-lg border-l-4 border-yellow-400">
-                <strong>Catatan Penilaian:</strong> Semua nilai Praktikum maksimum 95; nilai 0 karena ketahuan melakukan plagiasi tugas (menyalin/memfoto pekerjaan mahasiswa lain).
+                <strong>Catatan Penilaian:</strong> Semua nilai Praktikum maksimum 95; nilai 0 karena ketahuan melakukan plagiasi tugas (screenshot/memfoto pekerjaan mahasiswa lain terus timpa nama, tanpa menggunakan workspace sendiri), tidak mengumpulkan atau file tidak ditemukan atau mengumpulkan tugas berbeda.
               </div>
 
               {/* Profil Mahasiswa */}
