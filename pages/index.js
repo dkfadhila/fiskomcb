@@ -79,7 +79,8 @@ export default function Home() {
             {/* Navigasi */}
             <div className="flex justify-center gap-4 mb-6">
               <a href="https://x.com/vhaeyrin" target="_blank" rel="noopener noreferrer" className="hover:underline">X</a>
-              <a href="https://github.com/dkfadhila" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub</a>
+              <a href="https://github.com/dkfadhila" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub DK</a>
+              <a href="https://github.com/maheswari352427" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub FERDI</a>
             </div>
 
             {/* Catatan Penilaian */}
