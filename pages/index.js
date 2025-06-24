@@ -113,12 +113,20 @@ export default function Home() {
               {/* Navigasi */}
               <div className="flex justify-center gap-4 mb-6">
                 <a
+                  href="https://github.com/maheswari352427"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  GitHub Ferdi
+                </a>
+                <a
                   href="https://x.com/vhaeyrin"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:underline"
                 >
-                  X
+                  My X
                 </a>
                 <a
                   href="https://github.com/dkfadhila"
@@ -126,7 +134,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="hover:underline"
                 >
-                  GitHub
+                  GitHub DK
                 </a>
               </div>
 
